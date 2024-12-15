@@ -548,9 +548,9 @@ class SentryUartMethod:
             elif err == SENTRY_PROTOC_TIMEOUT:
                 try_time += 1
                 if try_time > 3:
-                    return SENTRY_READ_TIMEOUT
+                    return (SENTRY_READ_TIMEOUT,0)
             else:
-                return SENTRY_FAIL
+                return (SENTRY_FAIL,0)
 
     def Read(self, vision_type, vision_state):
 
@@ -690,7 +690,7 @@ class SentryBase:
         self.__img_w = 0
         self.__img_h = 0
         self.__debug = None
-        self.__vision_states = [None]*SENTRY_MAX_RESULT
+        self.__vision_states = [None]*sengo1_vision_e.kVisionMaxType
 
         self.SetDebug(log_level)
 
