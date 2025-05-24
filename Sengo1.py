@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+__vision__ = "1.2.4"
 import ustruct  # type: ignore # pylint: disable=import-error
 from time import sleep_ms  # pylint: disable=no-name-in-module
 
@@ -937,6 +939,10 @@ class SentryBase:
             return 0
 
         vision_state = self.__vision_states[vision_type-1]
+        
+        while SENTRY_OK != self.__SensorLockkReg(False):
+            pass
+
 
         err, frame = self.__stream.Get(kRegFrameCount)
         if err:
