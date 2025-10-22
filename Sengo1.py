@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-__vision__ = "1.2.4"
+__vision__ = "1.2.5"
 import ustruct  # type: ignore # pylint: disable=import-error
 from time import sleep_ms  # pylint: disable=no-name-in-module
 
@@ -997,9 +997,9 @@ class SentryBase:
             return vision_state.result[obj_id].data4
         elif object_inf == sentry_obj_info_e.kLabel:
             return vision_state.result[obj_id].data5
-        elif object_inf == sentry_obj_info_e.kGValue:
-            return vision_state.result[obj_id].data1
         elif object_inf == sentry_obj_info_e.kRValue:
+            return vision_state.result[obj_id].data1
+        elif object_inf == sentry_obj_info_e.kGValue:
             return vision_state.result[obj_id].data2
         elif object_inf == sentry_obj_info_e.kBValue:
             return vision_state.result[obj_id].data3
